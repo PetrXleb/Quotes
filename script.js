@@ -124,7 +124,7 @@ function createNote(text, title, i) {
 //
 addBtn.addEventListener('click', (e) => {
     const el = createNote("Цитата", "Автор");
-    notesEl.appendChild(el); 
+    notesEl.prepend(el); 
     
             //анимация для кнопки
             addBtn.classList.toggle('animation-addBtn');
@@ -167,7 +167,6 @@ async function getResponse() {
     //Распарсим прибывший json
      baseUrl = await fetch('https://6429d1f500dfa3b5473ae544.mockapi.io/api/v1/test');
      content = await baseUrl.json();
-
      console.log(content);
      console.log(content.length);
      
@@ -176,7 +175,7 @@ async function getResponse() {
         //console.log(content[i].name);
 
         const el = createNote(content[i].text, content[i].name, content[i].id);
-        notesEl.appendChild(el);
+        notesEl.prepend(el);
 
         last_id = content[i].id;
         last_indexx_in_bd = content[i].id;
@@ -285,9 +284,16 @@ startt();
 //при запуске страницы
 //
 function startt(title, text) {
-    //создаем тестовую карточку
-    //const el = createNote(title, text);
-    //notesEl.appendChild(el);
+     //создаем очень старые цитаты (<100)
+     let content = [];
+     for (let i = 0; i < content.length; i++) {
+    
+      const el = createNote(content[i].text, content[i].name, content[i].id);
+      notesEl.prepend(el);
+
+      last_id = content[i].id;
+      last_indexx_in_bd = content[i].id;
+   }
 
     //обращение к базе данных
     getResponse();
