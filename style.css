@@ -1,0 +1,807 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab|PT+Sans+Caption&subset=latin,cyrillic);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  box-sizing: border-box;
+  width: 100%;
+}
+/* var(--color-info); */
+
+:root {
+  --color-a: #fafafa;
+  --color-button-main: #0494a1;
+  --color-button-main-active: lightblue;
+  --color-this-day: #523b30;
+  --color-click: rgb(32, 71, 71);
+  --color-time: #f4bc84;
+  --color-info: #d6b8b5;
+  --color-pop: #d6b8b5;
+}
+
+button {
+  color: rgb(4, 4, 4);
+}
+
+.custom-select {
+  color: rgb(4, 4, 4);
+}
+
+/* :root {
+  --color-a: #fafafa;
+  --color-button: #53699e;
+  --color-active: #acadd2;
+  --color-day: #312c4d;
+  --color-click: #04145c;
+  --color-time: #3c90b8;
+  --color-info: #acadd2;
+} */
+
+.colorFontWhite {
+  color: white;
+}
+
+body {
+  background-color: var(--color-a);
+}
+
+#main {
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  margin-top: 10px;
+}
+.day {
+  background-color: var(--color-a);
+  width: 100%;
+  margin: 0 auto;
+}
+.lesson {
+  position: relative;
+  left: -1300px;
+  background-color: var(--color-a);
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.hidden {
+  display: none;
+}
+
+.NoOverflow {
+  overflow-x: hidden;
+}
+
+.recolor2 {
+  background-color: var(--color-click);
+  color: var(--color-a);
+}
+.recolor {
+  background-color: var(--color-day);
+  color: var(--color-a);
+}
+.bottom {
+  width: 1px;
+  height: 200px;
+}
+
+body,
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Таймер */
+
+.countdown-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  margin-bottom: 80px;
+
+  background-color: var(--color-button);
+  font-size: 1.1em;
+  border-radius: 10px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.days-container,
+.hours-container,
+.minutes-container,
+.seconds-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  width: 140px;
+  height: 140px;
+  border-radius: 99px;
+}
+
+.days-container {
+  display: none;
+}
+
+.days,
+.hours,
+.minutes,
+.seconds {
+  font-size: 2.5em;
+  margin: 10px 0;
+}
+
+.days-label,
+.hours-label,
+.minutes-label,
+.seconds-label {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 800px) {
+  .countdown-container {
+    max-width: 90%;
+  }
+
+  .days-container,
+  .hours-container,
+  .minutes-container,
+  .seconds-container {
+    font-size: 0.8em;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/*       Выпадающий спискок
+ */
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px 38px 10px 16px;
+  background: #fafafa url("select-arrows.svg") no-repeat right 16px center;
+  background-size: 10px;
+  transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.custom-select:hover {
+  border: 1px solid #999;
+}
+.custom-select:focus {
+  border: 1px solid #999;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+/* remove default arrow in IE */
+select::-ms-expand {
+  display: none;
+}
+
+/* Пасхалки */
+.egg {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+}
+
+/*  Попап */
+
+.popup__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s all;
+}
+
+.popup__bg.active {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.5s all;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: var(--color-a);
+  width: 450px;
+  padding: 25px;
+  transition: 0.5s all;
+}
+
+.popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.5s all;
+}
+/* Конец важной части */
+/* Далее код для стилизации формы */
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.popup label {
+  width: 100%;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.popup .label__text {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #cfd0d3;
+  margin-bottom: 5px;
+}
+
+.popup input {
+  height: 45px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #cfd0d3;
+}
+
+.popup input:focus {
+  border-bottom: 1px solid var(--color-time);
+}
+
+.popup input:focus + .label__text {
+  color: var(--color-time);
+}
+
+.popup textarea {
+  resize: none;
+  width: 100%;
+  height: 150px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #cfd0d3;
+  font-size: 18px;
+  padding-top: 5px;
+}
+
+.popup textarea:focus {
+  border-bottom: 1px solid var(--color-pop);
+}
+
+.popup textarea:focus + .label__text {
+  color: var(--color-time);
+}
+
+.popup button {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-a);
+  font-size: 18px;
+  border: 2px solid var(--color-pop);
+  background: var(--color-pop);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s all;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.popup button:hover {
+  background: var(--color-a);
+  color: var(--color-pop);
+  transition: 0.5s all;
+}
+
+.app {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-a);
+  font-size: 18px;
+  border: 2px solid var(--color-pop);
+  background: var(--color-pop);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s all;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.app_hidden {
+  display: none;
+
+  width: 100%;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-a);
+  font-size: 18px;
+  border: 2px solid var(--color-pop);
+  border-top: 0px;
+  background: var(--color-pop);
+  text-transform: uppercase;
+  transition: 0.5s all;
+}
+
+.app:hover {
+  background: var(--color-a);
+  color: var(--color-pop);
+  transition: 0.5s all;
+  display: flex;
+}
+
+.app:focus + .app_hidden {
+  display: flex;
+  font-size: 14px;
+  text-transform: uppercase;
+  height: 80px;
+  width: calc(100%-5px);
+  padding-left: 5px;
+  font-family: "Roboto Slab", serif;
+}
+
+.version {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  margin: 2px;
+  text-decoration: none;
+}
+
+.version a {
+  all: unset;
+}
+
+a {
+  all: unset;
+}
+
+/* 
+//Сама таблицы
+*/
+.container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+.small-container {
+  width: calc(27%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: var(--color-time);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.tiny-container {
+  width: calc(3%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.large-container {
+  border-radius: 10px;
+  background-color: var(--color-info);
+
+  width: 70%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.box-ttime1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 20%;
+}
+.box-ttime2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 20%;
+}
+.box-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.box-name {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.box-auditorium {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+/* // */
+
+.NameUniversity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.btnn {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  border: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.btnn:active {
+  transform: translateY(2px);
+  background-color: var(--color-active);
+  transition: transform 0.1s ease-out;
+}
+
+.btnn-other {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  border: 0px;
+  margin-left: 5px;
+  background-color: var(--color-button);
+  cursor: pointer;
+  transition: background-color 0.5s ease-out;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.btnn-other:active {
+  transform: translateY(2px);
+  transition: transform 0.1s ease-out;
+  background-color: var(--color-button);
+}
+
+.button-container {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.day {
+  padding-top: 30px;
+}
+
+h1,
+p {
+  font-family: "Roboto Slab", serif;
+  font-weight: normal;
+}
+
+button {
+  background-color: var(--color-button);
+}
+
+.pad1 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pad2 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.qqq2 {
+  display: none;
+}
+
+.firstOfAll {
+  width: 100%;
+  height: 200%;
+  background-image: url(3.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#img2 {
+  width: 500px;
+  height: 500px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .button-container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .button-container {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 800px) {
+  .button-container {
+    width: 100%;
+  }
+
+  .box-name {
+    width: 70%;
+  }
+  .box-auditorium {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 630px) {
+  .qqq1 {
+    display: none;
+  }
+
+  .qqq2 {
+    display: inline-block;
+  }
+}
+
+/* Для телефонов */
+
+@media screen and (orientation: portrait) {
+  .qqq1 {
+    display: none;
+  }
+
+  .qqq2 {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    margin-right: 20px;
+  }
+
+  .lesson {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .container {
+    width: 100%;
+    display: inline-block;
+
+    font-size: 2.5em;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .tiny-container {
+    display: inline-block;
+    display: none;
+  }
+
+  .small-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 70%;
+    border: 0px;
+    border-radius: 0px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  .large-container {
+    display: inline-block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    border: 0px;
+    border-radius: 0px;
+    height: 150%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  .box-ttime1 {
+    margin-left: 20%;
+  }
+
+  .box-ttime2 {
+    margin-right: 20%;
+  }
+
+  .box-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .countdown-container {
+    width: 100%;
+    border-radius: 0px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  .countdown-container {
+    font-size: 1.4em;
+  }
+
+  .pad1 {
+    font-size: 1.7em;
+  }
+
+  .button-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .NameUniversity {
+    font-size: 1.7em;
+    margin-top: 4%;
+    margin-bottom: 2%;
+  }
+
+  .btnn {
+    position: relative;
+    top: -200px;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    border: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    font-family: "Roboto Slab", serif;
+    font-weight: normal;
+    font-size: 2.5em;
+
+    cursor: pointer;
+  }
+
+  .btnn-other {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 0px;
+    background-color: var(--color-button);
+    cursor: pointer;
+    transition: background-color 0.5s ease-out;
+
+    font-size: 2em;
+    float: right;
+  }
+
+  .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: var(--color-a);
+    width: 90%;
+    padding: 25px;
+    transition: 0.5s all;
+  }
+
+  .popup button {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-a);
+    font-size: 2em;
+    border: 2px solid var(--color-pop);
+    background: var(--color-pop);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  .app:focus + .app_hidden {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-a);
+    font-size: 1.5em;
+    border: 2px solid var(--color-pop);
+    background: var(--color-pop);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  .version {
+    font-size: 2em;
+    height: 8%;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    margin: 2px;
+  }
+
+  .firstOfAll {
+    font-size: 3em;
+  }
+  .custom-select {
+    height: 120px;
+    width: 230px;
+    font-size: 1em;
+  }
+  .custom-select option {
+    font-size: 16px;
+  }
+}
