@@ -1,242 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="shortcut icon" href="quotation.png" type="image/png" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Цитатник</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
     <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    rel="stylesheet"
-  />
-</head>
-<body>
-  <a id="up"></a>
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a id="up"></a>
     <div class="container">
       <div class="header">
         <h1 class="text1">Добавить цитату</h1>
-        <button class="note-add" type="button"><i class="fa-solid fa-plus"></i></button>
-        <button class="note-theme" type="button"><i class="fa-solid fa-sun"></i></button>
-        <a href="#down"><button class="upDown" type="button"><i class="fa-solid fa-caret-down"> down</i></button></a>
-
+        <button class="note-add" type="button">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button class="note-theme" type="button">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <a href="#down"
+          ><button class="upDown" type="button">
+            <i class="fa-solid fa-caret-down"> down</i>
+          </button></a
+        >
       </div>
       <div class="notes"></div>
-    </div> 
-    <right>    
-      <a href="#up" style="float: right"><button class="upDown" type="button" id="down"><i class="fa-solid fa-caret-up"> up</i></button></a>
+    </div>
+    <right>
+      <a href="#up" style="float: right"
+        ><button class="upDown" type="button" id="down">
+          <i class="fa-solid fa-caret-up"> up</i>
+        </button></a
+      >
     </right>
     <style>
-    * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    }
-    h1{
-      color: #2f2f30;
-    }
-    button{
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      h1 {
+        color: #2f2f30;
+      }
+      button {
         background-color: #5694c4;
         border-radius: 5px;
         border: none;
-    }
-    body {
-    background-color: #e2ebf1;
-    font-family: "Open Sans", sans-serif;
-    }
-    a {
-  color: #000 !important;
-  text-decoration: none
-}
+      }
+      body {
+        background-color: #e2ebf1;
+        font-family: "Open Sans", sans-serif;
+      }
+      a {
+        color: #000 !important;
+        text-decoration: none;
+      }
 
-    .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-    .header {
-    display: flex;
-    align-items: center;
-    }
+      .header {
+        display: flex;
+        align-items: center;
+      }
 
-    .note-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    }
+      .note-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
 
-    .notes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    }
+      .notes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
 
-    .note {
-    padding: 16px;
-    margin: 30px;
-    border-radius: 10px;
-    height: 260px;
-    width: 240px;
-    margin-bottom: 120px;
-    }
+      .note {
+        padding: 16px;
+        margin: 30px;
+        border-radius: 10px;
+        height: 260px;
+        width: 240px;
+        margin-bottom: 120px;
+      }
 
-    .note-add {
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    }
-    .note-theme{
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    }
-    .upDown{
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    background-color: #5694c4;
-    }
+      .note-add {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .note-theme {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .upDown {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #5694c4;
+      }
 
-    .note-edit {
-    padding: 6px;
-    cursor: pointer; 
-    }
+      .note-edit {
+        padding: 6px;
+        cursor: pointer;
+      }
 
-    .note-delete {
-    padding: 6px;
-    cursor: pointer;
-    }
-    .author{
+      .note-delete {
+        padding: 6px;
+        cursor: pointer;
+      }
+      .author {
+      }
+      .hidden {
+        display: none;
+      }
+      .hidden2 {
+        display: none;
+      }
+      .note-save {
+        padding: 6px;
+        cursor: pointer;
+      }
 
-    }
-    .hidden {
-    display: none;
-    }
-    .hidden2 {
-    display: none;
-    }
-    .note-save{
-    padding: 6px;
-    cursor: pointer;
-    }
+      /* url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap'); */
+      /* demo setup */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        padding: 2rem;
+        font-family: "Open Sans", sans-serif;
+      }
+      body > * + * {
+        margin-top: 1.5em;
+      }
+      h1 {
+        text-align: center;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      blockquote {
+        max-width: 25rem;
+        margin-inline: auto;
+      }
 
-    /* url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap'); */
-/* demo setup */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box }
-body { min-height: 100vh; padding: 2rem; font-family: 'Open Sans', sans-serif; }
-body > * + *  { margin-top: 1.5em }
-h1{ text-align: center; font-weight: 800; text-transform: uppercase }
-blockquote { max-width: 25rem; margin-inline: auto }
+      /* blockquote card colors */
+      blockquote.q-card-color-1 {
+        --accent-color: rgb(32 32 54);
+        --bg-color: rgb(30 145 254);
+        --dot-color: rgb(255 255 255 / 0.35);
+        --text-color: rgb(243 243 243);
+        --text-color-author: rgb(243 243 243);
+      }
 
-/* blockquote card colors */
-blockquote.q-card-color-1{
-  --accent-color: rgb(32 32 54);
-  --bg-color: rgb(30 145 254);
-  --dot-color: rgb(255 255 255 / .35);
-  --text-color: rgb(243 243 243);
-  --text-color-author: rgb(243 243 243);
-}
+      blockquote.q-card-color-2 {
+        --accent-color: rgb(243 243 243);
+        --bg-color: rgb(33 29 30);
+        --dot-color: rgb(255 255 255 / 0.125);
+        --text-color: rgb(243 243 243);
+        --text-color-author: rgb(33 29 30);
+      }
 
-blockquote.q-card-color-2{
-  --accent-color: rgb(243 243 243);
-  --bg-color: rgb(33 29 30);
-  --dot-color: rgb(255 255 255 / .125);
-  --text-color: rgb(243 243 243);
-  --text-color-author: rgb(33 29 30);
-}
+      blockquote.q-card-color-3 {
+        --accent-color: rgb(30 145 254);
+        --bg-color: rgb(32 32 54);
+        --dot-color: rgb(255 255 255 / 0.125);
+        --text-color: rgb(243 243 243);
+        --text-color-author: rgb(243 243 243);
+      }
 
-blockquote.q-card-color-3{
-  --accent-color: rgb(30 145 254);
-  --bg-color: rgb(32 32 54);
-  --dot-color: rgb(255 255 255 / .125);
-  --text-color: rgb(243 243 243);
-  --text-color-author: rgb(243 243 243);
-}
+      /* blockquote card setup*/
+      blockquote.q-card {
+        --padding: 1rem;
+        padding: var(--padding);
+        color: var(--text-color, black);
+        font-weight: 600;
+        background-color: var(--bg-color, white);
+        display: grid;
+        gap: 1rem;
+        background-image: radial-gradient(
+          circle,
+          var(--dot-color, rgb(0 0 0 / 0.125)) calc(25% - 1px),
+          transparent 25%
+        );
+        background-size: 0.5rem 0.5rem;
+        border-radius: 0.25rem;
+        box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / 0.5);
+      }
+      blockquote.q-card::before {
+        --qHeight: 4rem;
+        content: "";
+        margin-left: calc(var(--padding) * -1);
+        margin-top: calc(var(--padding) * -1);
+        height: var(--qHeight);
+        width: calc(var(--qHeight) * 1.1);
+        background-image: radial-gradient(
+            circle at bottom right,
+            transparent calc(var(--qHeight) / 4 - 1px),
+            var(--accent-color, black) calc(var(--qHeight) / 4)
+              calc(var(--qHeight) / 2),
+            transparent calc(var(--qHeight) / 2 + 1px)
+          ),
+          linear-gradient(
+            var(--accent-color, black),
+            var(--accent-color, black)
+          );
+        background-size: calc(var(--qHeight) / 2) calc(var(--qHeight) / 2);
+        background-position: top left, bottom left;
+        background-repeat: space no-repeat;
+      }
 
-/* blockquote card setup*/
-blockquote.q-card{
-  --padding: 1rem;
-  padding: var(--padding);
-  color: var(--text-color, black);
-  font-weight: 600;
-  background-color: var(--bg-color, white);
-  display: grid;
-  gap: 1rem;
-  background-image: radial-gradient( circle, var(--dot-color, rgb(0 0 0 / .125)) calc(25% - 1px), transparent 25% );
-  background-size: 0.5rem 0.5rem;
-  border-radius: 0.25rem;
-  box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / .5)
-  
-}
-blockquote.q-card::before{
-  --qHeight: 4rem;
-  content: "";
-  margin-left: calc(var(--padding) * -1);
-  margin-top: calc(var(--padding) * -1);
-  height: var(--qHeight);
-  width: calc(var(--qHeight) * 1.1);
-  background-image:
-    radial-gradient(
-      circle at bottom right,
-      transparent calc(var(--qHeight) / 4 - 1px),
-      var(--accent-color, black) calc(var(--qHeight) / 4) calc(var(--qHeight) / 2), 
-      transparent calc(var(--qHeight) / 2 + 1px)
-    ),
-    linear-gradient(var(--accent-color, black), var(--accent-color, black));
-  background-size: calc(var(--qHeight) / 2) calc(var(--qHeight) / 2);
-  background-position: top left, bottom left;
-  background-repeat: space no-repeat
-}
+      blockquote.q-card > .author {
+        color: var(--text-color-author, white);
+        background-color: var(--accent-color, black);
+        justify-self: end;
+        font-size: 0.75em;
+        padding: 0.5em 1em;
+        border-radius: 0.25rem;
+      }
+      blockquote.q-card > .author::before {
+        content: "- ";
+      }
 
-blockquote.q-card > .author{
-  color: var(--text-color-author, white);
-  background-color: var(--accent-color, black);
-  justify-self: end;
-  font-size: 0.75em;  
-  padding: 0.5em 1em;
-  border-radius: 0.25rem;
-}
-blockquote.q-card > .author::before{
-  content: "- "
-}
+      .animation-save i {
+        visibility: hidden;
+      }
+      .animation-save:before {
+        content: "Сохранено!";
+      }
+      .animation-save {
+        background-color: rgb(28, 211, 22);
+        transition-duration: 1s;
+      }
 
-.animation-save i{
- visibility: hidden;
-}
-.animation-save:before{
-  content: "Сохранено!";
-}
-.animation-save{
-  background-color: rgb(28, 211, 22);
-  transition-duration: 1s;
-}
+      .animation-delete i {
+        visibility: hidden;
+      }
+      .animation-delete:before {
+        content: "Удалено!";
+      }
+      .animation-delete {
+        background-color: rgb(212, 14, 14);
+        transition-duration: 1s;
+      }
 
-.animation-delete i{
- visibility: hidden;
-}
-.animation-delete:before{
-  content: "Удалено!";
-}
-.animation-delete{
-  background-color: rgb(212, 14, 14);
-  transition-duration: 1s;
-}
+      .animation-addBtn {
+        background-color: #305f85;
+        transition-duration: 0.1s;
+      }
 
-.animation-addBtn{
-  background-color: #305f85;
-  transition-duration: 0.1s;
-}
-
-.animation-addBtn2{
-  background-color: #305f85;
-  transition-duration: 0.1s;
-}
-
+      .animation-addBtn2 {
+        background-color: #305f85;
+        transition-duration: 0.1s;
+      }
     </style>
     <script src="script.js"></script>
-
   </body>
 </html>
