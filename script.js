@@ -160,7 +160,7 @@ addBtn.addEventListener('click', (e) => {
   });
 
 //
-//обращение к базе данных - получение всей базы
+//обращение к базе данны
 //
 async function getResponse() {
     //Делаем запрос на данные
@@ -184,7 +184,7 @@ async function getResponse() {
 
 
   //
-  //добавление чего-либо в базу данных
+  //добавление в базу данных
   //
 async function AddQ(title, text, actualIndexx) {
     //создаем объект
@@ -221,7 +221,6 @@ async function AddQ(title, text, actualIndexx) {
         try {
           await DeleteQ(actualIndexx);
         } catch (error) {
-          //Допустимая ошибка
         }
 
     await fetch('https://6429d1f500dfa3b5473ae544.mockapi.io/api/v1/test', {
@@ -237,7 +236,7 @@ async function AddQ(title, text, actualIndexx) {
 }
 
 //
-//удаление чего-либо из базы данных
+//удаление из базы данных
 //
  async function DeleteQ(id) {
      await fetch(`https://6429d1f500dfa3b5473ae544.mockapi.io/api/v1/test/${id}`, {
@@ -246,7 +245,7 @@ async function AddQ(title, text, actualIndexx) {
 } 
 
 //
-//Обновляем цитату на сервере
+//Обновляем цитату
 //
 async function UpdateQ(title, text, actualIndexx) {
 
