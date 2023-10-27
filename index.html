@@ -1,513 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="shortcut icon" href="quotation.png" type="image/png" />
     <meta charset="UTF-8" />
-    <title>MyPortfolio</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Цитатник</title>
     <link
-      rel="shortcut icon"
-      href="media/icon-portfolio-7867852.png"
-      type="image/png"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="script.js" defer></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
-      <div class="header_wrapper">
-        <h1>Hello..</h1>
-        <h1>I`m Peter</h1>
-        <p>
-          <span style="color: #ffffff">Novice&nbsp;</span>
-          web developer
-        </p>
-
-        <div class="header-butt">
-          <a href="#works"><button class="worksButton">To my works</button></a>
-          <button class="lang">
-            <img src="media/Russia-Flag.png" alt="RUS" />
-          </button>
-        </div>
+    <a id="up"></a>
+    <div class="container">
+      <div class="header">
+        <h1 class="text1">Добавить цитату</h1>
+        <button class="note-add" type="button">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button class="note-theme" type="button">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <a href="#down"
+          ><button class="upDown" type="button">
+            <i class="fa-solid fa-caret-down"> down</i>
+          </button></a
+        >
       </div>
-    </header>
-    <div class="bio">
-      <div class="about">AB<span style="color: #347dc6d7">O</span>UT ME</div>
-      <div class="biografia">
-        <div class="bio-img">
-          <!--           <img
-            src="https://img.goodfon.com/original/5760x3840/5/45/kofe-paren-telefon-progulka.jpg"
-            alt="It`s me"
-          /> -->
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 -60 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <pattern
-                id="myImage1"
-                width="1.1px"
-                height="1.2px"
-                viewBox="40 40 130 130"
-              >
-                <image href="media/me.jpg" width="100%" height="100%" />
-              </pattern>
-            </defs>
-            <path
-              fill="url(#myImage1)"
-              d="M43.5,-76.4C54.5,-69,60.4,-53.6,68.4,-39.5C76.5,-25.5,86.7,-12.7,86.9,0.1C87.1,13,77.2,25.9,68.1,38.2C59.1,50.5,50.8,62,39.5,69.8C28.3,77.5,14.2,81.4,0.8,80C-12.5,78.6,-25.1,71.9,-37.7,64.9C-50.3,58,-63,50.9,-72.7,40C-82.4,29.2,-89.1,14.6,-90.2,-0.6C-91.3,-15.9,-86.9,-31.7,-77.2,-42.6C-67.5,-53.5,-52.6,-59.3,-38.8,-65.1C-25.1,-70.9,-12.5,-76.8,1.8,-80C16.2,-83.2,32.5,-83.8,43.5,-76.4Z"
-              transform="translate(100 25)"
-            />
-          </svg>
-        </div>
-        <div class="bio-text changeableLang changeableLang hidden">
-          I am 19. Two years ago I entered a technical university, where they
-          immediately began to teach us the basics of building websites. Since
-          that time, I realized that I was ready to do this on my own on an
-          ongoing basis, since the process aroused my interest. I have several
-          projects on my account, the ideas for which I took from my head. I
-          suggest you get acquainted with them.
-        </div>
-        <div class="bio-text changeableLang changeableLang">
-          Мне 19. Два года назад поступил в технический университет, где нас
-          сразу же начали обучать основам создания сайтов. Тогда я понял, что
-          готов заниматься этим самостоятельно, поскольку процесс создания
-          сайтов вызывал у меня интерес. У меня есть несколько проектов, идеи
-          для которых в большинстве случаях придумал сам. Я предлагаю вам
-          ознакомиться с ними ниже.
-        </div>
-      </div>
-      <div class="skills-img">
-        <img src="media/html.svg" alt="html" title="html" />
-        <img src="media/css3.png" alt="css" title="css" />
-        <img src="media/figma.png" alt="figma" title="figma" />
-        <img src="media/js.jpg" alt="javascript" title="javascript" />
-        <img src="media/react.png" alt="react" title="react" />
-      </div>
-      <div class="skills-text">SKILLS</div>
+      <div class="notes"></div>
     </div>
-    <div class="works">
-      <div class="work-header" id="works">
-        MY WORK<span style="color: #347dc6d7">S</span>
-      </div>
+    <right>
+      <a href="#up" style="float: right"
+        ><button class="upDown" type="button" id="down">
+          <i class="fa-solid fa-caret-up"> up</i>
+        </button></a
+      >
+    </right>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      h1 {
+        color: #2f2f30;
+      }
+      button {
+        background-color: #5694c4;
+        border-radius: 5px;
+        border: none;
+      }
+      body {
+        background-color: #e2ebf1;
+        font-family: "Open Sans", sans-serif;
+      }
+      a {
+        color: #000 !important;
+        text-decoration: none;
+      }
 
-      <!-- Расписание -->
-      <div class="work">
-        <!-- На телефонах этот блок появляется, а тот что ниже скрывается -->
-        <div class="work-img-mobile shadow-timetable timetable">
-          <a
-            href="https://petrxleb.github.io/EasyTable/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-text changeableLang hidden">
-          <h2>Timetable</h2>
-          One of my most time-consuming projects. The idea to create a schedule
-          application appeared by itself, since in our university the schedule
-          is divided into two groups and two weeks. It is quite difficult to
-          navigate by a regular pdf file at first. In addition to displaying
-          classes, there is also a time before these classes, for better
-          orientation. The alternation of weeks occurs automatically, but if
-          desired, you can do it yourself. There are several types of color
-          design, you can also conveniently scroll through the phone using a
-          scroll, and there are many more small chips that I don't have enough
-          space to paint.
-        </div>
-        <div class="work-text changeableLang">
-          <h2>Расписание</h2>
-          Один из моих самых временно затратных проектов. Идея создать
-          приложение расписание появилась сама собой, так как в нашем вузе
-          расписание разбито на две группы и две недели. Довольно сложно
-          ориентироваться по обычному pdf файлу в первое время. Помимо
-          отображения занятий, предусмотрено и время до этих занятий, для лучшей
-          ориентации. Чередование недель происходит автоматически, но при
-          желании это можно осуществить самому. Есть несколько видов цветового
-          оформления, также на телефоне можно удобно листать с помощью скролла,
-          и еще много мелких фишек, которых мне не хватит места расписать.
-        </div>
-        <div class="work-img shadow-timetable timetable">
-          <a
-            href="https://petrxleb.github.io/EasyTable/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-      </div>
-      <!-- Словарь -->
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-      <div class="work">
-        <div class="work-img shadow-dictionaty dictionaty">
-          <a
-            href="https://petrxleb.github.io/DictionaryWithTranslator/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-img-mobile shadow-dictionaty dictionaty">
-          <a
-            href="https://petrxleb.github.io/DictionaryWithTranslator/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-text changeableLang hidden">
-          <h2>Dictionaty With Translator</h2>
-          This project in theory can help beginners in learning English by
-          memorizing flashcards with words. In this project, I learned how to
-          work with an API that allows you to translate text from one language
-          to another. I also tried regular expressions for the first time. Using
-          the API, I made something like an English-Russian translator. The
-          words from the cards are translated and recorded in the list below,
-          for further memorization
-        </div>
-        <div class="work-text changeableLang">
-          <h2>Словарь/Переводчик</h2>
-          Этот проект в теории может помочь новичкам в изучении английского
-          языка, путём запоминания карточек со словами. В этом проекте я
-          научился работать с API интерфейсом, позволяющим переводить текст с
-          одного языка на другой. Также впервые попробовал регулярные выражения.
-          С помощью API я сделал что-то вроде англо-русского переводчика. Слова
-          из карточек переводятся и записываются в список ниже, для дальнейшего
-          их запоминания
-        </div>
-      </div>
-      <!-- Музыкальный тест -->
-      <div class="work">
-        <div class="work-img-mobile shadow-musicTest musicTest">
-          <a
-            href="https://musictestproject.netlify.app/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-text changeableLang hidden">
-          <h2>MusicTest</h2>
-          The first job done with React. The application consists of a test of
-          25 questions and a leaderboard at the end. The player database is
-          stored on the MockAPI service. The main difficulty was retraining, it
-          was difficult for me to do simple things that would have been done in
-          a matter of minutes on pure JS. But nevertheless, the project gave the
-          first experience in the development of React applications. I deployed
-          work on the Netlify platform, and you can see the code here
-          https://github.com/PetrXleb/MusicTest
-        </div>
-        <div class="work-text changeableLang">
-          <h2>Музыкальный тест</h2>
-          Первая работа, выполненная с помощью React. Приложение представляет из
-          себя тест из 25 вопросов и таблицей лидеров в конце. База игроков
-          хранится на сервисе MockAPI. Главная сложность была в переобучении,
-          мне было сложно делать простые вещи, которые на чистом JS были бы
-          сделаны за считанные минуты. Но тем не менее, проект дал первый опыт в
-          разработке React приложений. Развернул работу на платформе Netlify, а
-          код можете посмортеть тут https://github.com/PetrXleb/MusicTest
-        </div>
-        <div class="work-img shadow-musicTest musicTest">
-          <a
-            href="https://musictestproject.netlify.app/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-      </div>
+      .header {
+        display: flex;
+        align-items: center;
+      }
 
-      <!-- Новелла -->
-      <div class="work">
-        <div class="work-img shadow-novel novel">
-          <a
-            href="https://petrxleb.github.io/VisualNovelEngine/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-img-mobile shadow-novel novel">
-          <a
-            href="https://petrxleb.github.io/VisualNovelEngine/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-text changeableLang hidden">
-          <h2>Visual Novel</h2>
-          This project is an engine for writing browser-based visual novels. The
-          idea to create something like this came from my love of visual novels.
-          You should not count on any design, the emphasis was on functionality.
-          According to the idea, anyone who doesn't even know much coding can
-          write a novel using my ready-made functions to change the background,
-          music, character name, and so on. I also provided a simple save. There
-          is still a lot of functionality to be added, but now you can try to
-          create a small novel
-        </div>
-        <div class="work-text changeableLang">
-          <h2>Визуальная новелла</h2>
-          Этот проект представляет из себя движок для написания браузерных
-          визуальных новелл. Идея создать что-то подобное появилась из моей
-          любви к визуальным новеллам. На какой-либо дизайн рассчитывать не
-          стоит, упор делался на функционал. По идеи любой человек, даже не
-          владеющий особо кодингом, может написать новеллу, используя мои
-          готовые функции для изменения фона, музыки, имени персонажа и так
-          далее. Также я предусмотрел простенькое сохранение. Еще много
-          функционала предстоит добавить, но уже сейчас можно попробовать
-          создать небольшую новеллу
-        </div>
-      </div>
-      <!-- Цитаты -->
-      <div class="work">
-        <div class="work-img-mobile shadow-quotes quotes">
-          <a
-            href="https://petrxleb.github.io/Quotes/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-        <div class="work-text changeableLang hidden">
-          <h2>EasyQuotes</h2>
-          The idea to create this site appeared by chance. My friends and I like
-          to come up with various local "quotes", but they were quickly
-          forgotten if they were not written down anywhere. Then I decided to
-          make something like a web notebook. In this project, I learned how to
-          use the mocAPI service, which allows you to make test requests to the
-          server using fetch in my case. Quotes can be added, existing ones can
-          be changed, deleted (the deletion password is "999"). When adding a
-          new one, it must be saved
-        </div>
-        <div class="work-text changeableLang">
-          <h2>Цитатник</h2>
-          Идея создать этот сайт появилась случайно. Мои друзья и я любим
-          придумывать различные локальные "цитаты", но они быстро забывались,
-          если их никуда не записывать. Тогда я решил сделать что-то вроде web
-          блокнота. В этом проекте я научился пользоваться сервисом mocAPI,
-          который позволяет делать тестовые запросы на сервер, используя в моем
-          случаи fetch. Цитаты можно добавлять, изменять существующие, удалять
-          (пароль удаления "999"). При добавлении новой ее нужно обязательно
-          сохранить
-        </div>
-        <div class="work-img shadow-quotes quotes">
-          <a
-            href="https://petrxleb.github.io/Quotes/"
-            class="link"
-            target="_blank"
-          ></a>
-        </div>
-      </div>
-      <!-- ========================================= -->
-    </div>
-    <div class="mini-works">
-      <div class="m-work-header">
-        MINI WORK<span style="color: #347dc6d7">S</span>
-      </div>
-      <div class="m-work-wrap">
-        <!--сheckers-->
-        <div class="m-work сheckers">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Checkers</h3>
-            <p class="changeableLang hidden">
-              Just an attempt to recreate checkers, kind of successful. The only
-              significant drawback is that you have to manage using alert
-            </p>
-            <h3 class="changeableLang">Шашки</h3>
-            <p class="changeableLang">
-              Просто попытка воссоздать шашки. Единственный существенный
-              недостаток - управлять приходится с помощью alert
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a
-              href="miniProject/Checkers.html"
-              class="link"
-              target="_blank"
-            ></a>
-          </div>
-        </div>
-        <!--neuralNetwork-->
-        <div class="m-work neuralNetwork">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Neural Network</h3>
-            <p class="changeableLang hidden">
-              At one point, I began to be interested in the principle of neural
-              networks. This site shows the behavior of a single neuron
-            </p>
-            <h3 class="changeableLang">Нейросеть</h3>
-            <p class="changeableLang">
-              В один момент я начал интересоваться принципом работы нейросетей.
-              Этот сайт показывает поведение одного нейрона
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a
-              href="https://petrxleb.github.io/NeuralNetwork/"
-              class="link"
-              target="_blank"
-            ></a>
-          </div>
-        </div>
-        <!--canvass-->
-        <div class="m-work canvass">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Canvas</h3>
-            <p class="changeableLang hidden">
-              The first acquaintance with canvas. To tell the truth, I looked at
-              this work on YouTube, but I also made my own improvements in the
-              end
-            </p>
-            <h3 class="changeableLang">Канвас</h3>
-            <p class="changeableLang">
-              Первое знакомство с canvas. По правде говоря, эту работу я
-              посмотрел на ютубе, но сделал и свои доработки в итоге
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a href="miniProject/canvas.html" class="link" target="_blank"></a>
-          </div>
-        </div>
-        <!--simpleWebsite-->
-        <div class="m-work simpleWebsite">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">A simple website</h3>
-            <p class="changeableLang hidden">
-              I found the design of some website on the Internet, tried to
-              recreate it, it seems like it
-            </p>
-            <h3 class="changeableLang">Простенький сайт</h3>
-            <p class="changeableLang">
-              Нашёл дизайн какого-то сайта в интернете, попытался воссоздать,
-              вроде как похоже
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a
-              href="miniProject/simpleWebsite/Main.HTML"
-              class="link"
-              target="_blank"
-            ></a>
-          </div>
-        </div>
-        <!--password-->
-        <div class="m-work password">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Password Generator</h3>
-            <p class="changeableLang hidden">
-              I think the name speaks for itself. One of the first works
-            </p>
-            <h3 class="changeableLang">Генератор паролей</h3>
-            <p class="changeableLang">
-              Я думаю название говорит само за себя. Одна из первых работ
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a
-              href="miniProject/MakePassword.html"
-              class="link"
-              target="_blank"
-            ></a>
-          </div>
-        </div>
-        <!--billiard-->
-        <div class="m-work billiard">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Billiard</h3>
-            <p class="changeableLang hidden">
-              A very old job. Here I learned how to work with @keyframes
-            </p>
-            <h3 class="changeableLang">Бильярд</h3>
-            <p class="changeableLang">
-              Очень старая работа. Тут я учился работать с @keyframes
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a
-              href="miniProject/Billiard/Billiard.html"
-              class="link"
-              target="_blank"
-            ></a>
-          </div>
-        </div>
-        <!--nyanCat-->
-        <div class="m-work nyanCat">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Nyan Cat</h3>
-            <p class="changeableLang hidden">
-              My first job using JS. Nothing special, just a background changing
-              colors
-            </p>
-            <h3 class="changeableLang">Нян Кэт</h3>
-            <p class="changeableLang">
-              Моя первая работа с использованием JS. Ничего особого, просто фон,
-              меняющий цвета
-            </p>
-          </div>
-          <div class="m-work-link">
-            <a href="miniProject/nyanCat.html" class="link" target="_blank"></a>
-          </div>
-        </div>
-        <!--8-->
-        <div class="m-work m-work-1">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Name</h3>
-            <p class="changeableLang hidden">In development...</p>
-            <h3 class="changeableLang">Название</h3>
-            <p class="changeableLang">В разработке...</p>
-          </div>
-          <div class="m-work-link">
-            <!--<a href="" class="link" target="_blank"></a>-->
-          </div>
-        </div>
-        <!--9-->
-        <div class="m-work m-work-2">
-          <div class="blackout"></div>
-          <div class="m-work-text">
-            <h3 class="changeableLang hidden">Name</h3>
-            <p class="changeableLang hidden">In development...</p>
-            <h3 class="changeableLang">Название</h3>
-            <p class="changeableLang">В разработке...</p>
-          </div>
-          <div class="m-work-link">
-            <!-- <a href="" class="link" target="_blank"></a> -->
-          </div>
-        </div>
-        <!--============-->
-      </div>
-    </div>
+      .note-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
 
-    <div class="bottom">
-      <div class="bottom-wrap" id="bottom-wrap">
-        <h2>Contact with me</h2>
-        <p>
-          <a href="#bottom-wrap">
-            <img
-              class="bottom-icon"
-              src="media/email-mail-mailer-message-round-keyboard-2-1024.webp"
-              alt=""
-            />
-            &nbsp;chyvstvinpetr@gmail.com
-          </a>
-        </p>
-        <p>
-          <a href="https://t.me/petrchan" target="_blank">
-            <img
-              class="bottom-icon"
-              src="media/Telegram-Logo-2013-2048x1288.png"
-              alt=""
-            />
-            &nbsp;telegram</a
-          >
-        </p>
-        <p>
-          <a href="https://github.com/PetrXleb" target="_blank">
-            <img class="bottom-icon" src="media/Logo_Github-1024.webp" alt="" />
-            &nbsp;github
-          </a>
-        </p>
-      </div>
-    </div>
-    <!-- <div style="height: 100vh">2</div> -->
+      .notes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .note {
+        padding: 16px;
+        margin: 30px;
+        border-radius: 10px;
+        height: 260px;
+        width: 240px;
+        margin-bottom: 120px;
+      }
+
+      .note-add {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .note-theme {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .upDown {
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #5694c4;
+      }
+
+      .note-edit {
+        padding: 6px;
+        cursor: pointer;
+      }
+
+      .note-delete {
+        padding: 6px;
+        cursor: pointer;
+      }
+      .author {
+      }
+      .hidden {
+        display: none;
+      }
+      .hidden2 {
+        display: none;
+      }
+      .note-save {
+        padding: 6px;
+        cursor: pointer;
+      }
+
+      /* url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap'); */
+      /* demo setup */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        padding: 2rem;
+        font-family: "Open Sans", sans-serif;
+      }
+      body > * + * {
+        margin-top: 1.5em;
+      }
+      h1 {
+        text-align: center;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      blockquote {
+        max-width: 25rem;
+        margin-inline: auto;
+      }
+
+      /* blockquote card colors */
+      blockquote.q-card-color-1 {
+        --accent-color: rgb(32 32 54);
+        --bg-color: rgb(30 145 254);
+        --dot-color: rgb(255 255 255 / 0.35);
+        --text-color: rgb(243 243 243);
+        --text-color-author: rgb(243 243 243);
+      }
+
+      blockquote.q-card-color-2 {
+        --accent-color: rgb(243 243 243);
+        --bg-color: rgb(33 29 30);
+        --dot-color: rgb(255 255 255 / 0.125);
+        --text-color: rgb(243 243 243);
+        --text-color-author: rgb(33 29 30);
+      }
+
+      blockquote.q-card-color-3 {
+        --accent-color: rgb(30 145 254);
+        --bg-color: rgb(32 32 54);
+        --dot-color: rgb(255 255 255 / 0.125);
+        --text-color: rgb(243 243 243);
+        --text-color-author: rgb(243 243 243);
+      }
+
+      /* blockquote card setup*/
+      blockquote.q-card {
+        --padding: 1rem;
+        padding: var(--padding);
+        color: var(--text-color, black);
+        font-weight: 600;
+        background-color: var(--bg-color, white);
+        display: grid;
+        gap: 1rem;
+        background-image: radial-gradient(
+          circle,
+          var(--dot-color, rgb(0 0 0 / 0.125)) calc(25% - 1px),
+          transparent 25%
+        );
+        background-size: 0.5rem 0.5rem;
+        border-radius: 0.25rem;
+        box-shadow: 0.5rem 0.5rem 2rem rgb(0 0 0 / 0.5);
+      }
+      blockquote.q-card::before {
+        --qHeight: 4rem;
+        content: "";
+        margin-left: calc(var(--padding) * -1);
+        margin-top: calc(var(--padding) * -1);
+        height: var(--qHeight);
+        width: calc(var(--qHeight) * 1.1);
+        background-image: radial-gradient(
+            circle at bottom right,
+            transparent calc(var(--qHeight) / 4 - 1px),
+            var(--accent-color, black) calc(var(--qHeight) / 4)
+              calc(var(--qHeight) / 2),
+            transparent calc(var(--qHeight) / 2 + 1px)
+          ),
+          linear-gradient(
+            var(--accent-color, black),
+            var(--accent-color, black)
+          );
+        background-size: calc(var(--qHeight) / 2) calc(var(--qHeight) / 2);
+        background-position: top left, bottom left;
+        background-repeat: space no-repeat;
+      }
+
+      blockquote.q-card > .author {
+        color: var(--text-color-author, white);
+        background-color: var(--accent-color, black);
+        justify-self: end;
+        font-size: 0.75em;
+        padding: 0.5em 1em;
+        border-radius: 0.25rem;
+      }
+      blockquote.q-card > .author::before {
+        content: "- ";
+      }
+
+      .animation-save i {
+        visibility: hidden;
+      }
+      .animation-save:before {
+        content: "Сохранено!";
+      }
+      .animation-save {
+        background-color: rgb(28, 211, 22);
+        transition-duration: 1s;
+      }
+
+      .animation-delete i {
+        visibility: hidden;
+      }
+      .animation-delete:before {
+        content: "Удалено!";
+      }
+      .animation-delete {
+        background-color: rgb(212, 14, 14);
+        transition-duration: 1s;
+      }
+
+      .animation-addBtn {
+        background-color: #305f85;
+        transition-duration: 0.1s;
+      }
+
+      .animation-addBtn2 {
+        background-color: #305f85;
+        transition-duration: 0.1s;
+      }
+    </style>
+    <script src="script.js"></script>
   </body>
 </html>
